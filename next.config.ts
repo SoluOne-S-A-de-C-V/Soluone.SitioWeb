@@ -18,6 +18,15 @@ const nextConfig: NextConfig = {
       destination: `/industries/${slug}`,
     }));
   },
+  async redirects() {
+    return [
+      {
+        source: "/v2/:path*",
+        destination: "/",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -4,10 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:v2": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "start:v2": "next start -p 3002",
     "lint": "eslint"
   },
   "dependencies": {
