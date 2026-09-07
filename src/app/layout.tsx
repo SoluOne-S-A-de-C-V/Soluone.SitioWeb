@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   description:
     "Retail One is a point-of-sale system with great adaptability and configuration capabilities to meet the needs of your business.",
   icons: {
-    icon: "/images/ic_soluone.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", sizes: "300x300", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
