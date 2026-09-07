@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-blue: #133374;
+  --color-brand-blue-dark: #0B2252;
+  --color-brand-sky: #29A1F2;
+  --color-brand-sky-light: #C6E3FF;
+  --color-brand-pink: #E00E8B;
+  --color-brand-pink-hover: #C50777;
+  --color-brand-pink-light: #FFE3F4;
+  --color-brand-muted: #54595F;
+  --color-brand-light: #F8FAFC;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #133374;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lista-check {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.lista-check li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.lista-check li::before {
+  content: '•';
+  color: #54595F;
+  font-weight: bold;
+  font-size: 1.5em;
+  position: absolute;
+  left: 0;
+  top: -6px;
+}
+
+.lista-check strong {
+  color: #133374;
 }

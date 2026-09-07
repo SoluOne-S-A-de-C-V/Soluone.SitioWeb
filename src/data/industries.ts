@@ -1,0 +1,170 @@
+export interface Industry {
+  slug: string;
+  name: string;
+  nameEn: string;
+  subtitle: string;
+  heroBannerImg: string;
+  featureImg1: string;
+  featureImg2: string;
+  industryDescription: string;
+  specificModules: string[];
+}
+
+export const industriesData: Record<string, Industry> = {
+  "pastry-shops-and-ice-cream-parlors": {
+    slug: "pastry-shops-and-ice-cream-parlors",
+    name: "Pastry Shops and Ice Cream Parlors",
+    nameEn: "Pastry Shops and Ice Cream Parlors",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/55428.jpg",
+    featureImg2: "/images/581.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the pastry and food industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Manages different cost centers",
+      "Manage your sales by project",
+      "Handles different price lists depending on your branch",
+      "Manage your warehouse costs",
+      "Make your purchases in SAP and distribute them to your branches",
+      "Prices in foreign currency",
+      "Use one exchange rate when buying and another when selling",
+      "Automatic production of items",
+      "Product reception with mobile devices",
+    ],
+  },
+  autoparts: {
+    slug: "autoparts",
+    name: "Autoparts",
+    nameEn: "Autoparts",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/mage-from-rawpixel-id-12647478-jpeg.jpg",
+    featureImg2: "/images/mage-from-rawpixel-id-3361650-jpeg.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the automotive industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Create manufacturing orders, produce, and sell your items",
+      "Defective item returns with tracking",
+      "Generate advance payments for your orders",
+      "Simplified tuning kit sales",
+      "Part search by vehicle model, year and brand",
+    ],
+  },
+  hardware: {
+    slug: "hardware",
+    name: "Hardware and Building Materials",
+    nameEn: "Hardware and Building Materials",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/199434.jpg",
+    featureImg2: "/images/2282.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the hardware and construction materials industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Manages different cost centers",
+      "Manage your sales by project",
+      "Handles different price lists depending on your branch",
+      "Manage your warehouse costs",
+      "Make your purchases in SAP and distribute them to your branches",
+      "Prices in foreign currency",
+      "File generation and integration for Truper",
+      "Product reception with mobile devices",
+    ],
+  },
+  "wines-and-spirits": {
+    slug: "wines-and-spirits",
+    name: "Wines and Spirits",
+    nameEn: "Wines and Spirits",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/1250.jpg",
+    featureImg2: "/images/38810.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the wine, spirits and beverage retail industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Manage different price lists (Retail, Semi-Wholesale, Wholesale, etc.)",
+      "Run promotions for specific customers",
+      "Handle products in different packaging units (bottles, boxes, pallets)",
+      "Manage pricing based on the packaging unit",
+      "Tiered volume discounts",
+      "Integration with various scale models",
+      "Airtime sales and bill payments (Mexico)",
+      "Read composite barcodes from scales",
+      "Credit sales and consignments",
+    ],
+  },
+  "fashion-and-footwear": {
+    slug: "fashion-and-footwear",
+    name: "Fashion and Footwear",
+    nameEn: "Fashion and Footwear",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/53738.jpg",
+    featureImg2: "/images/6963.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the fashion, apparel and footwear industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Specialized matrix searches by size and color",
+      "Check stock availability across branches in live view",
+      "Manage different price lists (Retail, Semi-Wholesale, Wholesale)",
+      "Run promotions for specific customer segments",
+      "Increase customer traffic with loyalty card programs",
+      "Agile return and exchange flow at checkout",
+    ],
+  },
+  groceries: {
+    slug: "groceries",
+    name: "Groceries",
+    nameEn: "Groceries",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/9384.jpg",
+    featureImg2: "/images/21683.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the supermarket, grocery and convenience store industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "High-speed checkout point of sale",
+      "Scale integration for bulk product weighing",
+      "Smart purchasing suggestions (R1) based on sales velocity",
+      "Batch, serial and expiration date monitoring",
+      "Airtime sales and utility bill collection",
+    ],
+  },
+  electronics: {
+    slug: "electronics",
+    name: "Electronics",
+    nameEn: "Electronics",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/195203.jpg",
+    featureImg2: "/images/31328.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the electronics, appliances and technology retail industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Control items managed by batches or serial numbers",
+      "Manage customs import declarations (pedimentos aduanales)",
+      "Collect payments and fulfill deliveries from another branch or distribution center",
+      "Operate under a layaway model and deliver products once fully paid",
+      "Control and manage warranty returns and technical defects",
+    ],
+  },
+  restaurants: {
+    slug: "restaurants",
+    name: "Restaurants",
+    nameEn: "Restaurants",
+    subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
+    heroBannerImg: "/images/Voi-4-1.jpg",
+    featureImg1: "/images/41898.jpg",
+    featureImg2: "/images/587.jpg",
+    industryDescription: "Our tool provides solutions to optimize routine processes within the restaurant, food service and hospitality industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    specificModules: [
+      "Waiter management and mobile order taking",
+      "Table status tracking (Occupied, Reserved, and Available)",
+      "Restaurant area mapping and dining room layout",
+      "Complimentary prepared dishes authorization",
+      "Split bills by guest or by amount",
+      "Merge tables and transfer accounts between tables",
+      "Reopen closed accounts and tip management",
+      "Course timing management (Appetizers, Main Courses, Desserts)",
+    ],
+  },
+};
+
+export const industriesList = Object.values(industriesData).map((ind) => ({
+  ...ind,
+  heroImage: ind.featureImg1,
+}));
