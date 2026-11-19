@@ -32,9 +32,17 @@ export default function RetailOneProductPage() {
               Store Operation Platform
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
-              Retail One
-            </h1>
+            <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="relative h-12 w-44">
+                <Image
+                  src="/images/logo_retail_one.png"
+                  alt="RetailOne"
+                  fill
+                  className="object-contain object-left brightness-0 invert"
+                  priority
+                />
+              </div>
+            </div>
 
             <p className="text-lg sm:text-xl text-white/90 font-medium">
               A steady growth for your business
@@ -183,7 +191,7 @@ export default function RetailOneProductPage() {
         <div className="max-w-4xl mx-auto px-4 space-y-6">
           <h2 className="text-3xl sm:text-5xl font-bold">Schedule an Appointment</h2>
           <p className="text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
-            Get in touch with our SAP Business One specialists in Mérida, Mexico, and experience a live demonstration of Retail One tailored to your company.
+            Get in touch with our SAP Business One enterprise specialists and experience a live demonstration of Retail One tailored to your company.
           </p>
           <div className="pt-2">
             <Link

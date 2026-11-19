@@ -8,6 +8,9 @@ export interface Industry {
   featureImg2: string;
   industryDescription: string;
   specificModules: string[];
+  brochureUrl?: string;
+  brochureDirectUrl?: string;
+  brochureName?: string;
 }
 
 export const industriesData: Record<string, Industry> = {
@@ -18,8 +21,11 @@ export const industriesData: Record<string, Industry> = {
     subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
     heroBannerImg: "/images/Voi-4-1.jpg",
     featureImg1: "/images/55428.jpg",
-    featureImg2: "/images/581.jpg",
+    featureImg2: "/images/148456.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the pastry and food industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557092",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Restaurantes%20y%20Cafeter%C3%ADas.pdf",
+    brochureName: "R1 Restaurantes y Cafeterías.pdf",
     specificModules: [
       "Manages different cost centers",
       "Manage your sales by project",
@@ -41,6 +47,9 @@ export const industriesData: Record<string, Industry> = {
     featureImg1: "/images/mage-from-rawpixel-id-12647478-jpeg.jpg",
     featureImg2: "/images/mage-from-rawpixel-id-3361650-jpeg.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the automotive industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557089",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Autopartes.pdf",
+    brochureName: "R1 Autopartes.pdf",
     specificModules: [
       "Create manufacturing orders, produce, and sell your items",
       "Defective item returns with tracking",
@@ -58,6 +67,9 @@ export const industriesData: Record<string, Industry> = {
     featureImg1: "/images/199434.jpg",
     featureImg2: "/images/2282.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the hardware and construction materials industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557086",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Ferreterias%20y%20Materiales%20de%20Construcci%C3%B3n.pdf",
+    brochureName: "R1 Ferreterias y Materiales de Construcción.pdf",
     specificModules: [
       "Manages different cost centers",
       "Manage your sales by project",
@@ -78,6 +90,9 @@ export const industriesData: Record<string, Industry> = {
     featureImg1: "/images/1250.jpg",
     featureImg2: "/images/38810.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the wine, spirits and beverage retail industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557091",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Vinos%20y%20Licores.pdf",
+    brochureName: "R1 Vinos y Licores.pdf",
     specificModules: [
       "Manage different price lists (Retail, Semi-Wholesale, Wholesale, etc.)",
       "Run promotions for specific customers",
@@ -99,6 +114,9 @@ export const industriesData: Record<string, Industry> = {
     featureImg1: "/images/53738.jpg",
     featureImg2: "/images/6963.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the fashion, apparel and footwear industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557093",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Moda%20y%20Calzado.pdf",
+    brochureName: "R1 Moda y Calzado.pdf",
     specificModules: [
       "Specialized matrix searches by size and color",
       "Check stock availability across branches in live view",
@@ -110,16 +128,19 @@ export const industriesData: Record<string, Industry> = {
   },
   groceries: {
     slug: "groceries",
-    name: "Groceries",
-    nameEn: "Groceries",
+    name: "Groceries & Butcher Shops",
+    nameEn: "Groceries & Butcher Shops",
     subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
     heroBannerImg: "/images/Voi-4-1.jpg",
     featureImg1: "/images/9384.jpg",
     featureImg2: "/images/21683.jpg",
-    industryDescription: "Our tool provides solutions to optimize routine processes within the supermarket, grocery and convenience store industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    industryDescription: "Our tool provides solutions to optimize routine processes within supermarkets, grocery stores, meat markets, and butcher shops. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557090",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Carnicer%C3%ADas.pdf",
+    brochureName: "R1 Carnicerías.pdf",
     specificModules: [
       "High-speed checkout point of sale",
-      "Scale integration for bulk product weighing",
+      "Scale integration for bulk and meat product weighing",
       "Smart purchasing suggestions (R1) based on sales velocity",
       "Batch, serial and expiration date monitoring",
       "Airtime sales and utility bill collection",
@@ -134,6 +155,9 @@ export const industriesData: Record<string, Industry> = {
     featureImg1: "/images/195203.jpg",
     featureImg2: "/images/31328.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the electronics, appliances and technology retail industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557087",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Electr%C3%B3nicos%20y%20Tecnolog%C3%ADa.pdf",
+    brochureName: "R1 Electrónicos y Tecnología.pdf",
     specificModules: [
       "Control items managed by batches or serial numbers",
       "Manage customs import declarations (pedimentos aduanales)",
@@ -144,13 +168,16 @@ export const industriesData: Record<string, Industry> = {
   },
   restaurants: {
     slug: "restaurants",
-    name: "Restaurants",
-    nameEn: "Restaurants",
+    name: "Restaurants & Cafeterias",
+    nameEn: "Restaurants & Cafeterias",
     subtitle: "At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.",
     heroBannerImg: "/images/Voi-4-1.jpg",
     featureImg1: "/images/41898.jpg",
     featureImg2: "/images/587.jpg",
     industryDescription: "Our tool provides solutions to optimize routine processes within the restaurant, food service and hospitality industry. Each branch can work online, updating prices and items to the central server in real-time.",
+    brochureUrl: "https://nextcloud.soluone.com.mx/apps/onlyoffice/s/8JLFSyTaLg8HcS6?fileId=557092",
+    brochureDirectUrl: "https://nextcloud.soluone.com.mx/s/8JLFSyTaLg8HcS6/download?path=%2F&files=R1%20Restaurantes%20y%20Cafeter%C3%ADas.pdf",
+    brochureName: "R1 Restaurantes y Cafeterías.pdf",
     specificModules: [
       "Waiter management and mobile order taking",
       "Table status tracking (Occupied, Reserved, and Available)",

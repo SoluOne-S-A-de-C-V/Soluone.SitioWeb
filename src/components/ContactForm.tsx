@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin, Building, User, AtSign, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
+import { CaptchaWidget } from "@/components/CaptchaWidget";
 
 export function ContactForm({ defaultIndustry }: { defaultIndustry?: string }) {
   const [formData, setFormData] = useState({
@@ -14,11 +15,18 @@ export function ContactForm({ defaultIndustry }: { defaultIndustry?: string }) {
     message: "",
   });
 
+  const [captchaVerified, setCaptchaVerified] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!captchaVerified) {
+      setStatus("error");
+      setErrorMessage("Please complete the Captcha verification before submitting.");
+      return;
+    }
+
     setStatus("submitting");
     setErrorMessage("");
 
@@ -40,7 +48,7 @@ export function ContactForm({ defaultIndustry }: { defaultIndustry?: string }) {
           </div>
           <h3 className="text-2xl font-bold text-[#133374]">Request Received!</h3>
           <p className="text-[#54595F] max-w-md mx-auto text-sm leading-relaxed">
-            Thank you for your interest in <strong>Retail One</strong>. A senior SAP Business One consultant from our team in Mérida will reach out to you shortly.
+            Thank you for your interest in <strong>Retail One</strong>. A senior SAP Business One consultant from our enterprise team will reach out to you shortly.
           </p>
           <div className="pt-4">
             <button
@@ -148,7 +156,7 @@ export function ContactForm({ defaultIndustry }: { defaultIndustry?: string }) {
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="+52 999 123 4567"
+                  placeholder="+1 (555) 000-0000"
                   className="w-full pl-10 pr-4 py-3 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#133374] focus:bg-white transition-all text-slate-900"
                 />
               </div>
@@ -193,6 +201,14 @@ export function ContactForm({ defaultIndustry }: { defaultIndustry?: string }) {
                 className="w-full pl-10 pr-4 py-3 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#133374] focus:bg-white transition-all text-slate-900"
               ></textarea>
             </div>
+          </div>
+
+          {/* Captcha Verification */}
+          <div className="pt-1">
+            <CaptchaWidget
+              verified={captchaVerified}
+              onVerify={setCaptchaVerified}
+            />
           </div>
 
           <button

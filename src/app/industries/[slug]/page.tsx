@@ -11,6 +11,8 @@ import {
   Layers,
   Briefcase,
   Boxes,
+  Download,
+  ExternalLink,
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -116,13 +118,24 @@ export default async function IndustryDetailPage({
               At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.
             </p>
 
-            <div className="pt-2 flex justify-center lg:justify-start">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg font-bold text-sm bg-[#E00E8B] text-white hover:bg-white hover:text-[#E00E8B] transition-all shadow-xl"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-bold text-sm bg-[#E00E8B] text-white hover:bg-white hover:text-[#E00E8B] transition-all shadow-xl"
               >
                 Schedule an Appointment
               </Link>
+              {industry.brochureUrl && (
+                <a
+                  href={industry.brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white text-white hover:text-[#133374] border border-white/20 backdrop-blur-xs transition-all shadow-lg group"
+                >
+                  <Download className="w-4 h-4 text-[#E00E8B] group-hover:scale-110 transition-transform" />
+                  <span>Download Brochure</span>
+                </a>
+              )}
             </div>
           </div>
 
@@ -330,13 +343,24 @@ export default async function IndustryDetailPage({
           <p className="text-white/80 text-base max-w-2xl mx-auto">
             At SoluONE, we specialize in developing Add-On applications specifically designed for the SAP Business One ERP system.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg font-bold text-sm bg-[#E00E8B] text-white hover:bg-white hover:text-[#E00E8B] transition-all shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm bg-[#E00E8B] text-white hover:bg-white hover:text-[#E00E8B] transition-all shadow-xl"
             >
               Schedule an Appointment
             </Link>
+            {industry.brochureUrl && (
+              <a
+                href={industry.brochureUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white text-white hover:text-[#133374] border border-white/20 backdrop-blur-xs transition-all shadow-lg group"
+              >
+                <Download className="w-4 h-4 text-[#E00E8B] group-hover:scale-110 transition-transform" />
+                <span>Download Brochure</span>
+              </a>
+            )}
           </div>
         </div>
       </section>

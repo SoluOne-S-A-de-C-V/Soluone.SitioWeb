@@ -38,11 +38,11 @@ export default function AboutPage() {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-[#133374] tracking-tight">
-              SoluOne was born from identifying a significant need in the market
+              SoluONE was born from identifying a significant need in the market
             </h2>
 
             <p className="text-[#54595F] leading-relaxed text-base">
-              SoluOne was born from identifying a significant need in the market among companies that had implemented the ERP SAP Business One and operated retail stores requiring a point-of-sale solution truly designed for SAP Business One.
+              SoluONE was born from identifying a significant need in the market among companies that had implemented the ERP SAP Business One and operated retail stores requiring a point-of-sale solution truly designed for SAP Business One.
             </p>
 
             <p className="text-[#54595F] leading-relaxed text-sm">

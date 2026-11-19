@@ -13,10 +13,16 @@ const industries = [
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    return industries.map((slug) => ({
+    const list = industries.map((slug) => ({
       source: `/${slug}`,
       destination: `/industries/${slug}`,
     }));
+    list.push(
+      { source: "/carnicerias", destination: "/industries/groceries" },
+      { source: "/carniceria", destination: "/industries/groceries" },
+      { source: "/butcher-shops", destination: "/industries/groceries" }
+    );
+    return list;
   },
   async redirects() {
     return [
@@ -24,6 +30,11 @@ const nextConfig: NextConfig = {
         source: "/v2/:path*",
         destination: "/",
         permanent: false,
+      },
+      {
+        source: "/ecosistema",
+        destination: "/ecosystem",
+        permanent: true,
       },
     ];
   },

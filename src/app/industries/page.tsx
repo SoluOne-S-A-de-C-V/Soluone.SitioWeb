@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { industriesList } from "@/data/industries";
-import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Download } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -71,14 +71,25 @@ export default function IndustriesPage() {
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-6 pt-0 space-y-2">
                 <Link
                   href={`/${ind.slug}`}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold bg-white border border-slate-200 text-[#133374] group-hover:bg-[#E00E8B] group-hover:border-[#E00E8B] group-hover:text-white transition-all"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold bg-white border border-slate-200 text-[#133374] group-hover:bg-[#E00E8B] group-hover:border-[#E00E8B] group-hover:text-white transition-all shadow-2xs"
                 >
                   <span>Explore Industry Features</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
+                {ind.brochureUrl && (
+                  <a
+                    href={ind.brochureUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-[11px] font-semibold text-slate-500 hover:text-[#E00E8B] hover:bg-[#FFE3F4]/50 transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5 text-[#E00E8B]" />
+                    <span>Download Brochure (PDF) ↗</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}

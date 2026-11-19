@@ -4,9 +4,11 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { Menu, X, ChevronDown, ArrowRight, Sparkles, ExternalLink, Globe } from "lucide-react";
 
 export function Header() {
+  const { language, setLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
@@ -42,6 +44,40 @@ export function Header() {
 
   return (
     <div className="w-full relative z-50 bg-[#133374]">
+      {/* Top Notification Bar: SAP Certified Solution + Direct Contact */}
+      <div className="bg-[#0A1224] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-white font-medium text-center sm:text-left">
+            <span className="bg-[#E00E8B] text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded-full shrink-0">
+              SAP Certified
+            </span>
+            <span className="text-xs">
+              {t(
+                "Validated Solution for SAP Business One — Certified Enterprise Add-On",
+                "Solución Validada para SAP Business One — Add-On Empresarial Certificado"
+              )}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs">
+            <a
+              href="tel:+529992681435"
+              className="text-slate-300 hover:text-white transition-colors flex items-center gap-1 font-semibold"
+            >
+              <span className="text-[#E00E8B]">📞</span> +52 999 268 1435
+            </a>
+            <span className="text-slate-700 hidden sm:inline">•</span>
+            <a
+              href="mailto:contacto@soluone.com"
+              className="text-slate-300 hover:text-white transition-colors hidden sm:inline"
+            >
+              contacto@soluone.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-2">
         <header className="bg-white rounded-2xl shadow-lg px-6 py-3.5 flex items-center justify-between border border-white/20">
           {/* Logo */}
@@ -60,7 +96,7 @@ export function Header() {
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-[#133374]">
             <Link href="/" className="hover:text-[#E00E8B] transition-colors py-2">
-              Home
+              {t("Home", "Inicio")}
             </Link>
 
             {/* Products Dropdown */}
@@ -73,7 +109,7 @@ export function Header() {
                 href="/#products"
                 className="flex items-center gap-1 hover:text-[#E00E8B] transition-colors"
               >
-                Products
+                {t("Products", "Productos")}
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${
                     productsOpen ? "rotate-180 text-[#E00E8B]" : ""
@@ -82,35 +118,62 @@ export function Header() {
               </Link>
 
               {productsOpen && (
-                <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:-top-3 before:left-0 before:right-0 before:h-4 before:content-['']">
+                <div className="absolute left-0 top-full pt-2 w-80 z-50 animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:-top-3 before:left-0 before:right-0 before:h-4 before:content-['']">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-2">
                     <div className="px-3 py-2 border-b border-slate-100 mb-1">
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                        Our Products
+                        {t("Our Products", "Nuestros Productos")}
                       </span>
                     </div>
                     <div className="grid grid-cols-1 gap-1">
-                      {siteConfig.navLinks[1].dropdown?.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={() => setProductsOpen(false)}
-                          className="px-3 py-2.5 rounded-xl text-xs font-semibold text-[#133374] hover:bg-[#FFE3F4] hover:text-[#E00E8B] flex flex-col transition-colors group"
-                        >
-                          <span className="flex items-center justify-between font-bold">
-                            {item.name}
-                            <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          </span>
-                          <span className="text-[11px] text-slate-500 font-normal mt-0.5">
-                            {item.desc}
-                          </span>
-                        </Link>
-                      ))}
+                      {siteConfig.navLinks[1].dropdown?.map((item) =>
+                        item.href.startsWith("http") ? (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setProductsOpen(false)}
+                            className="px-3 py-2.5 rounded-xl text-xs font-semibold text-[#133374] hover:bg-[#FFE3F4] hover:text-[#E00E8B] flex flex-col transition-colors group"
+                          >
+                            <span className="flex items-center justify-between font-bold">
+                              {item.name}
+                              <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                            </span>
+                            <span className="text-[11px] text-slate-500 font-normal mt-0.5">
+                              {item.desc}
+                            </span>
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setProductsOpen(false)}
+                            className="px-3 py-2.5 rounded-xl text-xs font-semibold text-[#133374] hover:bg-[#FFE3F4] hover:text-[#E00E8B] flex flex-col transition-colors group"
+                          >
+                            <span className="flex items-center justify-between font-bold">
+                              {item.name}
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </span>
+                            <span className="text-[11px] text-slate-500 font-normal mt-0.5">
+                              {item.desc}
+                            </span>
+                          </Link>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
               )}
             </div>
+
+            {/* Dedicated Ecosystem Page */}
+            <Link
+              href="/ecosystem"
+              className="hover:text-[#E00E8B] transition-colors py-2"
+            >
+              {t("Ecosystem", "Ecosistema")}
+            </Link>
 
             {/* Industries Dropdown */}
             <div
@@ -122,7 +185,7 @@ export function Header() {
                 href="/industries"
                 className="flex items-center gap-1 hover:text-[#E00E8B] transition-colors"
               >
-                Industries
+                {t("Industries", "Industrias")}
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${
                     industriesOpen ? "rotate-180 text-[#E00E8B]" : ""
@@ -135,11 +198,11 @@ export function Header() {
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-2">
                     <div className="px-3 py-2 border-b border-slate-100 mb-1">
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                        Industries & Sectors
+                        {t("Industries & Sectors", "Industrias y Sectores")}
                       </span>
                     </div>
                     <div className="grid grid-cols-1 gap-0.5 max-h-96 overflow-y-auto">
-                      {siteConfig.navLinks[2].dropdown?.map((item) => (
+                      {siteConfig.navLinks[3].dropdown?.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
@@ -157,7 +220,7 @@ export function Header() {
                         onClick={() => setIndustriesOpen(false)}
                         className="text-xs font-bold text-[#E00E8B] hover:underline"
                       >
-                        View all industries →
+                        {t("View all industries →", "Ver todas las industrias →")}
                       </Link>
                     </div>
                   </div>
@@ -166,35 +229,87 @@ export function Header() {
             </div>
 
             <Link href="/#customers" className="hover:text-[#E00E8B] transition-colors py-2">
-              Customers
+              {t("Customers", "Clientes")}
             </Link>
 
             <Link href="/about" className="hover:text-[#E00E8B] transition-colors py-2">
-              About
+              {t("About", "Nosotros")}
             </Link>
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+            {/* Language Switcher */}
+            <div className="flex items-center bg-slate-100 rounded-xl p-0.5 border border-slate-200 text-xs font-bold shrink-0">
+              <button
+                type="button"
+                onClick={() => setLanguage("en")}
+                className={`px-2.5 py-1 rounded-lg transition-all ${
+                  language === "en"
+                    ? "bg-[#133374] text-white shadow-xs"
+                    : "text-slate-600 hover:text-[#133374]"
+                }`}
+                title="Switch to English"
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage("es")}
+                className={`px-2.5 py-1 rounded-lg transition-all ${
+                  language === "es"
+                    ? "bg-[#133374] text-white shadow-xs"
+                    : "text-slate-600 hover:text-[#133374]"
+                }`}
+                title="Cambiar a Español"
+                aria-label="Cambiar a Español"
+              >
+                ES
+              </button>
+            </div>
+
             <Link
               href="/contact"
               className="text-sm font-semibold text-[#133374] hover:text-[#E00E8B] transition-colors"
             >
-              Request a demo
+              {t("Request a demo", "Solicitar demo")}
             </Link>
             <Link
               href="/contact"
-              className="px-5 py-2.5 text-sm font-bold text-[#133374] border-2 border-[#133374] rounded-xl hover:bg-[#133374] hover:text-white transition-all shadow-xs"
+              className="px-4 py-2 text-sm font-bold text-[#133374] border-2 border-[#133374] rounded-xl hover:bg-[#133374] hover:text-white transition-all shadow-xs shrink-0"
             >
-              Schedule an Appointment
+              {t("Schedule an Appointment", "Agendar Cita")}
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200 text-[11px] font-bold">
+              <button
+                type="button"
+                onClick={() => setLanguage("en")}
+                className={`px-1.5 py-0.5 rounded transition-all ${
+                  language === "en" ? "bg-[#133374] text-white" : "text-slate-600"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage("es")}
+                className={`px-1.5 py-0.5 rounded transition-all ${
+                  language === "es" ? "bg-[#133374] text-white" : "text-slate-600"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+
             <Link
               href="/contact"
-              className="px-3 py-1.5 text-xs font-bold bg-[#E00E8B] text-white rounded-lg"
+              className="px-2.5 py-1 text-xs font-bold bg-[#E00E8B] text-white rounded-lg"
             >
               Demo
             </Link>
@@ -216,7 +331,15 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
             >
-              Home
+              {t("Home", "Inicio")}
+            </Link>
+
+            <Link
+              href="/ecosystem"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
+            >
+              {t("Ecosystem", "Ecosistema")}
             </Link>
 
             {/* Products */}
@@ -225,7 +348,7 @@ export function Header() {
                 onClick={() => setProductsOpen(!productsOpen)}
                 className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
               >
-                <span>Products</span>
+                <span>{t("Products", "Productos")}</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${
                     productsOpen ? "rotate-180" : ""
@@ -234,16 +357,30 @@ export function Header() {
               </button>
               {productsOpen && (
                 <div className="pl-4 space-y-1 mt-1">
-                  {siteConfig.navLinks[1].dropdown?.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-[#E00E8B]"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {siteConfig.navLinks[1].dropdown?.map((item) =>
+                    item.href.startsWith("http") ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-[#E00E8B]"
+                      >
+                        <span>{item.name}</span>
+                        <ExternalLink className="w-3 h-3 text-slate-400" />
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-[#E00E8B]"
+                      >
+                        {item.name}
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </div>
@@ -254,7 +391,7 @@ export function Header() {
                 onClick={() => setIndustriesOpen(!industriesOpen)}
                 className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
               >
-                <span>Industries</span>
+                <span>{t("Industries", "Industrias")}</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${
                     industriesOpen ? "rotate-180" : ""
@@ -263,7 +400,7 @@ export function Header() {
               </button>
               {industriesOpen && (
                 <div className="pl-4 space-y-1 mt-1 max-h-60 overflow-y-auto">
-                  {siteConfig.navLinks[2].dropdown?.map((item) => (
+                  {siteConfig.navLinks[3].dropdown?.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -282,7 +419,7 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
             >
-              Customers
+              {t("Customers", "Clientes")}
             </Link>
 
             <Link
@@ -290,7 +427,7 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#133374] hover:bg-slate-50"
             >
-              About
+              {t("About", "Nosotros")}
             </Link>
 
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
@@ -299,7 +436,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-2.5 text-sm font-bold bg-[#E00E8B] text-white rounded-xl shadow-xs"
               >
-                Schedule an Appointment
+                {t("Schedule an Appointment", "Agendar Cita")}
               </Link>
             </div>
           </div>

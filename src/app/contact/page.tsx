@@ -1,12 +1,12 @@
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/data/siteConfig";
-import { Mail, Phone, MapPin, ShieldCheck, Sparkles, ExternalLink } from "lucide-react";
+import { Mail, Phone, MessageSquare, ShieldCheck, Sparkles, Globe } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact & Demo | SoluOne Retail One",
   description:
-    "Schedule an appointment for Retail One on SAP Business One. Reach out to our consultants in Mérida, Yucatán.",
+    "Schedule an appointment for Retail One on SAP Business One. Reach out to our enterprise retail consultants.",
 };
 
 export default function ContactPage() {
@@ -70,24 +70,20 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Address */}
+                {/* WhatsApp & Regional Coverage */}
                 <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-xl bg-[#FFE3F4] flex items-center justify-center text-[#E00E8B] shrink-0">
-                    <MapPin className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 flex items-center justify-center text-[#25D366] shrink-0">
+                    <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-slate-500">Headquarters</p>
+                    <p className="text-xs font-semibold text-slate-500">Official Channel</p>
                     <p className="font-semibold text-slate-800 text-xs leading-relaxed">
-                      {siteConfig.contact.address}
+                      {siteConfig.contact.whatsappChannel}
                     </p>
-                    <a
-                      href={siteConfig.contact.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#E00E8B] hover:underline mt-2"
-                    >
-                      View on Google Maps <ExternalLink className="w-3 h-3" />
-                    </a>
+                    <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1">
+                      <Globe className="w-3.5 h-3.5 text-blue-600" />
+                      <span>Regional coverage across Mexico, LATAM & USA</span>
+                    </div>
                   </div>
                 </div>
               </div>

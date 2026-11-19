@@ -11,9 +11,9 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://soluone.com"),
-  title: "SoluOne | Store Operation Platform for SAP Business One",
+  title: "SoluONE | Store Operation Platform for SAP Business One",
   description:
-    "Retail One is a point-of-sale system with great adaptability and configuration capabilities to meet the needs of your business.",
+    "SoluONE develops enterprise Add-Ons for SAP Business One: RetailOne POS, InvoiceOne CFDI 4.0, and Voi+ Delivery Hub.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
